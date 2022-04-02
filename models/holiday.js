@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const holidaySchema = new Schema({
-  name: String,
-  description: String,
-  likes: Number,
-  celebrated: Boolean,
+const holidaySchema = mongoose.Schema({
+  name: { type: String, required: true },
+  celebrated: { type: Boolean, default: false },
+  description: { type: String, default: "Best holiday ever!" },
+  likes: { type: Number, default: 0 },
+  tags: [{ type: String }],
 });
 
 const Holiday = mongoose.model("Holiday", holidaySchema);

@@ -23,8 +23,10 @@ mongoose.connection.once("open", () => {
   console.log("connected to mongoose...");
 });
 
+//MIDDLEWARE
 app.use(cors());
 app.use("/api/holidays", HolidayController);
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hi 2");
