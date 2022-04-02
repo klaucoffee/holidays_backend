@@ -38,4 +38,14 @@ router.post("/", async (req, res) => {
   }
 });
 
+//* Delete Route - DOESNT WORK
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedHoliday = await Holiday.findByIdAndRemove(req.params.id);
+    res.status(200).send(deletedHoliday);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 module.exports = router;
