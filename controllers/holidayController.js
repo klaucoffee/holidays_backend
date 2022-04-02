@@ -16,11 +16,7 @@ router.get("/seed", async (req, res) => {
   res.json(holidays);
 });
 
-router.get("/", (req, res) => {
-  res.send("holidays");
-});
-
-//* Index Route
+//* Index Route - this gets the data from the form
 router.get("/", (req, res) => {
   Holiday.find()
     .then((holidays) => {
@@ -31,7 +27,7 @@ router.get("/", (req, res) => {
     });
 });
 
-//* Create Route
+//* Create Route - this posts the data onto the /api/holidays page
 router.post("/", async (req, res) => {
   try {
     console.log(req.body);
