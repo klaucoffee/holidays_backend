@@ -1,16 +1,12 @@
 require("dotenv").config();
 const express = require("express");
-const Holiday = require("./models/Holiday"); //reading from Models
-const HolidayController = require("./controllers/holidayController"); //reading from Controllers
+const mongoose = require("mongoose");
+const HolidayController = require("./controllers/holidayController");
 
 const app = express();
 const PORT = process.env.PORT ?? 2000;
-
-//MONGOOSE CONNECTION
-const mongoose = require("mongoose");
-const MONGODB_URI = process.env.MONGODB_URI; // "mongodb://localhost:27017/holidays";
-
-//...farther down the page
+const MONGODB_URI =
+  process.env.MONGODB_URI ?? "mongodb://localhost:27017/holidays";
 
 // Error / Disconnection
 mongoose.connection.on("error", (err) =>
@@ -27,7 +23,6 @@ mongoose.connection.once("open", () => {
   console.log("connected to mongoose...");
 });
 
-//MIDDLEWARE
 app.use("/api/holidays", HolidayController);
 
 app.get("/", (req, res) => {
