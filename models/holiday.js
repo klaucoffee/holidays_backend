@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const holidaySchema = mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String },
   celebrated: { type: Boolean, default: false },
   description: { type: String, default: "Best holiday ever!" },
   likes: { type: Number, default: 0 },
