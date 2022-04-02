@@ -1,5 +1,5 @@
 const express = require("express");
-const Holiday = require("../models/Holiday");
+const Holiday = require("../models/holiday.js");
 const router = express.Router();
 
 router.get("/seed", async (req, res) => {
