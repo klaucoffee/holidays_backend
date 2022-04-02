@@ -34,6 +34,7 @@ router.get("/", (req, res) => {
 //* Create Route
 router.post("/", async (req, res) => {
   try {
+    console.log(req.body);
     const createdHoliday = await Holiday.create(req.body);
     res.status(200).send(createdHoliday);
   } catch (error) {
