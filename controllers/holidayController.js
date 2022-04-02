@@ -20,6 +20,17 @@ router.get("/", (req, res) => {
   res.send("holidays");
 });
 
+//* Index Route
+router.get("/", (req, res) => {
+  Holiday.find()
+    .then((holidays) => {
+      res.json(holidays);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 //* Create Route
 router.post("/", async (req, res) => {
   try {
