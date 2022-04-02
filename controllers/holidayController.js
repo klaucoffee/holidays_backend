@@ -41,11 +41,18 @@ router.post("/", async (req, res) => {
 //* Delete Route - DOESNT WORK
 router.delete("/:id", async (req, res) => {
   try {
+    console.log("deleting");
     const deletedHoliday = await Holiday.findByIdAndRemove(req.params.id);
     res.status(200).send(deletedHoliday);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
+});
+
+//*Put route
+router.put("/:id", async (req, res) => {
+  await Holiday.findByIdAndUpdate(req.params.id, req.body);
+  res.json({ message: "Holiday Updated" });
 });
 
 module.exports = router;
