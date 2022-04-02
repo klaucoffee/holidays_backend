@@ -8,8 +8,7 @@ const PORT = process.env.PORT ?? 2000;
 
 //MONGOOSE CONNECTION
 const mongoose = require("mongoose");
-const MONGODB_URI =
-  process.env.MONGODB_URI ?? "mongodb://localhost:27017/holidays";
+const MONGODB_URI = process.env.MONGODB_URI; // "mongodb://localhost:27017/holidays";
 
 //...farther down the page
 
